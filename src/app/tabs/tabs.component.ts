@@ -22,6 +22,10 @@ export class TabsComponent implements OnInit {
     this.chosenList = side;
   }
 
+  isActive(side): boolean {
+    return side === this.chosenList;
+  }
+
   getCharacters() {
     if (this.chosenList === 'all') {
       return [...this.characters];
