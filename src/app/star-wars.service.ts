@@ -12,4 +12,10 @@ export class StarWarsService {
     const filterByChosenSide = char => char.side === side;
     return this.characters.filter(filterByChosenSide);
   }
+
+  onSideChosen(charInfo) {
+    const findByName = char => char.name === charInfo.name;
+    const index = this.characters.findIndex(findByName);
+    this.characters[index].side = charInfo.side;
+  }
 }
