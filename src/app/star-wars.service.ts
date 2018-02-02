@@ -10,10 +10,7 @@ export class StarWarsService {
     {name: 'Darth Vader', side: ''}
   ];
 
-  private logService: LogService;
-
-  constructor(logService: LogService) {
-    this.logService = logService;
+  constructor(private logService: LogService) {
   }
 
   getCharacters(side) {
