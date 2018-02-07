@@ -21,10 +21,16 @@ export class StarWarsService {
     return this.characters.filter(filterByChosenSide);
   }
 
-  onSideChosen(charInfo) {
-    const findByName = char => char.name === charInfo.name;
+  onSideChosen(character) {
+    const findByName = char => char.name === character.name;
     const index = this.characters.findIndex(findByName);
-    this.characters[index].side = charInfo.side;
-    this.logService.writeLog(charInfo.name + ' changed side. New side: ' + charInfo.side);
+    this.characters[index].side = character.side;
+    this.logService.writeLog(character.name + ' changed side. New side: ' + character.side);
   }
+
+  addCharacter(character) {
+    this.characters.push(character);
+    this.logService.writeLog('New character was added: ' + character.name);
+  }
+
 }
