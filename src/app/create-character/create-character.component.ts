@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 import { StarWarsService } from '../star-wars.service';
 
@@ -17,6 +18,10 @@ export class CreateCharacterComponent implements OnInit {
   constructor(private swService: StarWarsService) { }
 
   ngOnInit() {
+  }
+
+  isInvalid(field: FormControl): boolean {
+    return field.invalid && field.touched;
   }
 
   onSubmit(submittedForm) {
