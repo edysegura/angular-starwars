@@ -28,7 +28,13 @@ export class StarWarsService {
     this.logService.writeLog(character.name + ' changed side. New side: ' + character.side);
   }
 
+  isAdded(name: string): boolean {
+    const index = this.characters.findIndex( char => char.name === name );
+    return index > -1;
+  }
+
   addCharacter(character) {
+    if (this.isAdded(character.name)) { return; }
     this.characters.push(character);
     this.logService.writeLog('New character was added: ' + character.name);
   }
