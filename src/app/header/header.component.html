@@ -1,4 +1,10 @@
 <ul class="nav nav-pills">
-  <li><a routerLink="/">Star Wars Characteres</a></li>
-  <li><a routerLink="/new-character">New Character</a></li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <a role="presentation"
+      routerLink="/">Star Wars Characteres</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <a role="presentation"
+      routerLink="/new-character">New Character</a>
+  </li>
 </ul>

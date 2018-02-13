@@ -1,0 +1,11 @@
+li {
+  padding: 10px;
+}
+
+li a {
+  text-decoration: none;
+}
+
+.active {
+  background:#eee;
+}
