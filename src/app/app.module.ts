@@ -13,9 +13,9 @@ import { StarWarsService } from './star-wars.service';
 import { TabsComponent } from './tabs/tabs.component';
 
 const routes = [
-  { path: '', component: TabsComponent },
+  { path: 'characters', component: TabsComponent },
   { path: 'new-character', component: CreateCharacterComponent },
-  { path: '**', redirectTo: '/' }
+  { path: '**', redirectTo: '/characters' }
 ];
 
 @NgModule({
