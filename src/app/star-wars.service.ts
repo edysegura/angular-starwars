@@ -23,16 +23,21 @@ export class StarWarsService {
 
   fetchCharacters() {
     this.http.get('https://swapi.co/api/people')
-      .map((response: Response) => {
-        const data = response.json();
-        const characters = data.results.map(char => {
-          return { name: char.name, side: '' };
-        });
-        return characters;
-      })
-      .subscribe ((characters) => {
-          console.log(characters);
-      });
+      .map(this.getOnlyNames)
+      .subscribe(this.updateCharacters.bind(this));
+  }
+
+  private updateCharacters(characters: any) {
+    this.characters = characters;
+    this.charactersChanged.next();
+  }
+
+  private getOnlyNames(response: Response) {
+    const data = response.json();
+    const characters = data.results.map(char => {
+      return { name: char.name, side: '' };
+    });
+    return characters;
   }
   getCharacters(side) {
     if (side === 'all') {
