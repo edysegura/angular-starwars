@@ -20,7 +20,7 @@ export class StarWarsService {
   ) {}
 
   fetchCharacters() {
-    this.http.get('http://swapi.co/api/people/').subscribe (
+    this.http.get('https://swapi.co/api/people').subscribe (
       (response: Response) => {
         console.log(response);
       }
