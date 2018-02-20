@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
@@ -13,10 +14,14 @@ import { StarWarsService } from './star-wars.service';
 import { TabsComponent } from './tabs/tabs.component';
 
 const routes = [
-  { path: 'characters', component: TabsComponent, children: [
-    { path: '', redirectTo: 'all', pathMatch: 'full' },
-    { path: ':side', component: ListComponent }
-  ] },
+  {
+    path: 'characters',
+    component: TabsComponent,
+    children: [
+      { path: '', redirectTo: 'all', pathMatch: 'full' },
+      { path: ':side', component: ListComponent }
+    ]
+  },
   { path: 'new-character', component: CreateCharacterComponent },
   { path: '**', redirectTo: '/characters' }
 ];
@@ -33,7 +38,8 @@ const routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpModule
   ],
   providers: [StarWarsService, LogService],
   bootstrap: [AppComponent]

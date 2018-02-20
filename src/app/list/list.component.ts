@@ -35,6 +35,7 @@ export class ListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.swService.fetchCharacters();
     this.loadCharacters();
   }
 
