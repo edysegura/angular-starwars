@@ -1,7 +1,7 @@
 import 'rxjs/add/operator/map';
 
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs/Subject';
 
 import { LogService } from './log.service';
@@ -18,7 +18,7 @@ export class StarWarsService {
 
   constructor(
     private logService: LogService,
-    private http: Http
+    private http: HttpClient
   ) {}
 
   fetchCharacters() {
@@ -32,8 +32,7 @@ export class StarWarsService {
     this.charactersChanged.next();
   }
 
-  private getOnlyNames(response: Response) {
-    const data = response.json();
+  private getOnlyNames(data) {
     const characters = data.results.map(char => {
       return { name: char.name, side: '' };
     });
