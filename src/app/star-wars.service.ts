@@ -18,11 +18,11 @@ export class StarWarsService {
 
   constructor(
     private logService: LogService,
-    private http: HttpClient
+    private httpClient: HttpClient
   ) {}
 
   fetchCharacters() {
-    this.http.get('https://swapi.co/api/people')
+    this.httpClient.get('https://swapi.co/api/people')
       .map(this.getOnlyNames)
       .subscribe(this.updateCharacters.bind(this));
   }
