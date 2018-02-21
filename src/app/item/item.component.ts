@@ -7,13 +7,10 @@ import { StarWarsService } from '../star-wars.service';
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.css']
 })
-export class ItemComponent implements OnInit {
+export class ItemComponent {
   @Input() character;
 
   constructor(private swService: StarWarsService) {
-  }
-
-  ngOnInit() {
   }
 
   onAssign(side) {
