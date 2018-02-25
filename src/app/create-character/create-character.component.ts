@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-import { StarWarsService } from '../star-wars.service';
+import { StarWarsService } from '../services/star-wars.service';
 
 @Component({
   selector: 'app-create-character',

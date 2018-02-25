@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
-import { StarWarsService } from '../star-wars.service';
+import { StarWarsService } from '../services/star-wars.service';
 
 @Component({
   selector: 'app-list',

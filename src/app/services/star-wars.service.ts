@@ -21,10 +21,17 @@ export class StarWarsService {
     private httpClient: HttpClient
   ) {}
 
+  onError(httpResponse) {
+    this.logService.writeLog(httpResponse.message);
+  }
+
   fetchCharacters() {
     this.httpClient.get('https://swapi.co/api/people')
       .map(this.getOnlyNames)
-      .subscribe(this.updateCharacters.bind(this));
+      .subscribe(
+        this.updateCharacters.bind(this),
+        this.onError.bind(this)
+      );
   }
 
   private updateCharacters(characters: any) {

@@ -1,6 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
@@ -9,8 +9,8 @@ import { CreateCharacterComponent } from './create-character/create-character.co
 import { HeaderComponent } from './header/header.component';
 import { ItemComponent } from './item/item.component';
 import { ListComponent } from './list/list.component';
-import { LogService } from './log.service';
-import { StarWarsService } from './star-wars.service';
+import { LogService } from './services/log.service';
+import { StarWarsService } from './services/star-wars.service';
 import { TabsComponent } from './tabs/tabs.component';
 
 const routes = [
