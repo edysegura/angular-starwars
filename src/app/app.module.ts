@@ -2,8 +2,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateCharacterComponent } from './create-character/create-character.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,19 +12,6 @@ import { ListComponent } from './list/list.component';
 import { LogService } from './services/log.service';
 import { StarWarsService } from './services/star-wars.service';
 import { TabsComponent } from './tabs/tabs.component';
-
-const routes = [
-  {
-    path: 'characters',
-    component: TabsComponent,
-    children: [
-      { path: '', redirectTo: 'all', pathMatch: 'full' },
-      { path: ':side', component: ListComponent }
-    ]
-  },
-  { path: 'new-character', component: CreateCharacterComponent },
-  { path: '**', redirectTo: '/characters' }
-];
 
 @NgModule({
   declarations: [
@@ -38,10 +25,13 @@ const routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [StarWarsService, LogService],
+  providers: [
+    StarWarsService,
+    LogService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
