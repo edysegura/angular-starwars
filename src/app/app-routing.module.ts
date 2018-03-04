@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { CreateCharacterComponent } from './create-character/create-character.component';
 import { ListComponent } from './list/list.component';
 import { TabsComponent } from './tabs/tabs.component';
 
@@ -14,7 +13,10 @@ const routes = [
       { path: ':side', component: ListComponent }
     ]
   },
-  { path: 'new-character', component: CreateCharacterComponent },
+  {
+    path: 'new-character',
+    loadChildren: './create-character/create-character.module#CreateCharacterModule'
+  },
   { path: '**', redirectTo: '/characters' }
 ];
 
