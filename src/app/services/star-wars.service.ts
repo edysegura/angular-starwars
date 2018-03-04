@@ -26,7 +26,7 @@ export class StarWarsService {
   }
 
   fetchCharacters() {
-    this.httpClient.get('https://swapi.co/api/people')
+    this.httpClient.get('https://swapi.co/api/people/')
       .map(this.getOnlyNames)
       .subscribe(
         this.updateCharacters.bind(this),
